@@ -1,5 +1,4 @@
-//import {TabulatorFull as Tabulator} from 'tabulator-tables';
-import {Tabulator, FormatModule, EditModule} from 'tabulator-tables';
+import {Tabulator, FormatModule, EditModule} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
 Tabulator.registerModule([FormatModule, EditModule]);
 
 var table = new Tabulator("#classes-in-event", {
