@@ -1,5 +1,5 @@
-//import {Tabulator, FormatModule, EditModule} from 'tabulator-tables';
-
+//import {TabulatorFull as Tabulator} from 'tabulator-tables';
+import {Tabulator, FormatModule, EditModule} from 'tabulator-tables';
 Tabulator.registerModule([FormatModule, EditModule]);
 
 var table = new Tabulator("#classes-in-event", {
