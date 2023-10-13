@@ -1,5 +1,6 @@
-import {Tabulator, FormatModule, EditModule} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
-Tabulator.registerModule([FormatModule, EditModule]);
+import {TabulatorFull as Tabulator} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
+// import {Tabulator, FormatModule, EditModule} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
+// Tabulator.registerModule([FormatModule, EditModule]);
 
 var table = new Tabulator("#classes-in-event", {
     movableRows:true,
