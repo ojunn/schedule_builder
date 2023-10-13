@@ -6,9 +6,6 @@ var table = new Tabulator("#classes-in-event", {
     addRowPos:"bottom",
     columns:[
         {rowHandle:true, formatter:"handle", headerSort:false, frozen:true, width:30, minWidth:30},
-        {formatter:"rowSelection", titleFormatter:"rowSelection", hozAlign:"center", headerSort:false, cellClick:function(e, cell){
-            cell.getRow().toggleSelect();
-        }},
         {title:"番号", field:"id"},
         {title:"種目", field:"class"},
         {title:"性別", field:"gender"},
