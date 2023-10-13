@@ -26,9 +26,16 @@ var table = new Tabulator("#classes-in-event", {
     ],
     data:[
         {id: "1", class: "無初級成年女子", gender: "女", grade: "無初級", number: "4", grouping: "4", group_number: "1", type: "JSF0", skating_time: "1", warm_up_time: "4", off_ice_time: "2", total_time: "3", start_time: "8:00", end_time: "9:00"},
-        {id: "2", class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
+        {id: "2", class: "選手権男子", gender: "男", grade: "7級", number: "12", grouping: "6 6", group_number: "2", type: "ISUSr", skating_time: "4", warm_up_time: "6", off_ice_time: "2", total_time: "6", start_time: "9:00", end_time: "10:00"},
+        {id: "3", class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
+        {id: "4", class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
     ],
 });
+
+//listen for row move
+// table.on("rowMoved", function(row){
+//     console.log("Row: " + row.getData().name + " has been moved");
+// });
 
 //Add row on "Add Row" button click
 document.getElementById("add-row").addEventListener("click", function(){
