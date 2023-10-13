@@ -1,5 +1,5 @@
 import {TabulatorFull as Tabulator} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
-// import {Tabulator, FormatModule, EditModule} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
+// import {Tabulator, FormatModule, EditModule, SelectRowModule} from 'https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator_esm.min.js';
 // Tabulator.registerModule([FormatModule, EditModule]);
 
 var table = new Tabulator("#classes-in-event", {
@@ -7,6 +7,9 @@ var table = new Tabulator("#classes-in-event", {
     addRowPos:"bottom",
     columns:[
         {rowHandle:true, formatter:"handle", headerSort:false, frozen:true, width:30, minWidth:30},
+        {formatter:"rowSelection", titleFormatter:"rowSelection", hozAlign:"center", headerSort:false, cellClick:function(e, cell){
+            cell.getRow().toggleSelect();
+        }},
         {title:"番号", field:"id"},
         {title:"種目", field:"class"},
         {title:"性別", field:"gender"},
