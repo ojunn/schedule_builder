@@ -2,7 +2,13 @@ import {Tabulator, FormatModule, EditModule} from 'https://unpkg.com/tabulator-t
 Tabulator.registerModule([FormatModule, EditModule]);
 
 var table = new Tabulator("#classes-in-event", {
+    movableRows:true,
+    addRowPos:"bottom",
     columns:[
+        {rowHandle:true, formatter:"handle", headerSort:false, frozen:true, width:30, minWidth:30},
+        {formatter:"rowSelection", titleFormatter:"rowSelection", hozAlign:"center", headerSort:false, cellClick:function(e, cell){
+            cell.getRow().toggleSelect();
+        }},
         {title:"番号", field:"id"},
         {title:"種目", field:"class"},
         {title:"性別", field:"gender"},
@@ -22,4 +28,14 @@ var table = new Tabulator("#classes-in-event", {
         {id: "1", class: "無初級成年女子", gender: "女", grade: "無初級", number: "4", grouping: "4", group_number: "1", type: "JSF0", skating_time: "1", warm_up_time: "4", off_ice_time: "2", total_time: "3", start_time: "8:00", end_time: "9:00"},
         {id: "2", class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
     ],
+});
+
+//Add row on "Add Row" button click
+document.getElementById("add-row").addEventListener("click", function(){
+    table.addRow({});
+});
+
+//Delete row on "Delete Row" button click
+document.getElementById("del-row").addEventListener("click", function(){
+    table.deleteRow(1);
 });
