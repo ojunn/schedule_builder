@@ -15,11 +15,11 @@ var table = new Tabulator("#classes-in-event", {
             title: "編集可",
             field: "editable",
             formatter: "tickCross",
-            editor: true,
             hozAlign: "center",
-            cellEdited: function (cell) {
+            cellClick: function (e, cell) {
                 const row = cell.getRow();
-                const isEditable = cell.getValue();
+                const isEditable = !cell.getValue(); // チェックボックスの状態を反転
+                cell.setValue(isEditable); // チェックボックスの状態を更新
 
                 // 行の編集可能状態を切り替え
                 row.getCells().forEach(cell => {
@@ -51,10 +51,10 @@ var table = new Tabulator("#classes-in-event", {
         {title: "終了時刻", field: "end_time", hozAlign: "center", editor: "input"}, // 例: "9:00"
     ],
     data: [
-        {id: "1", class: "無初級成年女子", gender: "女", grade: "無初級", number: "4", grouping: "4", group_number: "1", type: "JSF0", skating_time: "1", warm_up_time: "4", off_ice_time: "2", total_time: "3", start_time: "8:00", end_time: "9:00"},
-        {id: "2", class: "選手権男子", gender: "男", grade: "7級", number: "12", grouping: "6 6", group_number: "2", type: "ISUSr", skating_time: "4", warm_up_time: "6", off_ice_time: "2", total_time: "6", start_time: "9:00", end_time: "10:00"},
-        {id: "3", class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
-        {id: "4", class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
+        {id: "1", editable: true, class: "無初級成年女子", gender: "女", grade: "無初級", number: "4", grouping: "4", group_number: "1", type: "JSF0", skating_time: "1", warm_up_time: "4", off_ice_time: "2", total_time: "3", start_time: "8:00", end_time: "9:00"},
+        {id: "2", editable: true, class: "選手権男子", gender: "男", grade: "7級", number: "12", grouping: "6 6", group_number: "2", type: "ISUSr", skating_time: "4", warm_up_time: "6", off_ice_time: "2", total_time: "6", start_time: "9:00", end_time: "10:00"},
+        {id: "3", editable: true, class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
+        {id: "4", editable: true, class: "", gender: "", grade: "", number: "", grouping: "", group_number: "", type: "", skating_time: "1", warm_up_time: "", off_ice_time: "", total_time: "", start_time: "", end_time: ""},
     ],
 });
 
