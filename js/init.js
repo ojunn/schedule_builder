@@ -10,16 +10,27 @@ var table = new Tabulator("#classes-in-event", {
             titleFormatter: "rowSelection",
             hozAlign: "center",
             headerSort: false,
-            cellClick: function (e, cell) {
+        },
+        {
+            title: "編集可",
+            field: "editable",
+            formatter: "tickCross",
+            editor: true,
+            hozAlign: "center",
+            cellEdited: function (cell) {
                 const row = cell.getRow();
-                const isSelected = row.isSelected();
-                row.toggleSelect();
+                const isEditable = cell.getValue();
 
                 // 行の編集可能状態を切り替え
                 row.getCells().forEach(cell => {
                     const column = cell.getColumn();
-                    if (column.getField() !== "id") { // "id"列は常に編集不可
-                        cell.getElement().contentEditable = !isSelected;
+                    if (column.getField() !== "id" && column.getField() !== "editable") { // "id"列と"editable"列は常に編集不可
+                        const cellElement = cell.getElement();
+                        if (isEditable) {
+                            cellElement.setAttribute("contenteditable", "true");
+                        } else {
+                            cellElement.setAttribute("contenteditable", "false");
+                        }
                     }
                 });
             }
